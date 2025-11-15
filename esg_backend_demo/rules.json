@@ -1,0 +1,46 @@
+{
+  "rules": [
+    {
+      "id": "R-GRI-302-1-ELEC",
+      "condition": "record['type']=='electricity' and record.get('unit')=='kWh'",
+      "transformation": "convert_kwh_to_gj(record['quantity'])",
+      "target": "GRI_302_1_Energy_GJ",
+      "note": "Electricity -> energy (GJ)"
+    },
+    {
+      "id": "R-GRI-305-2-ELEC",
+      "condition": "record['type']=='electricity' and record.get('scope')=='Scope 2'",
+      "transformation": "emissions_from_electricity(record['quantity'])",
+      "target": "GRI_305_2_Emissions_tCO2e",
+      "note": "Scope 2 - location-based"
+    },
+    {
+      "id": "R-GRI-305-1-DIESEL",
+      "condition": "record['type']=='fuel' and record.get('fuel_type','').lower()=='diesel'",
+      "transformation": "emissions_from_diesel(record['quantity'])",
+      "target": "GRI_305_1_Emissions_tCO2e",
+      "note": "Scope 1 diesel combustion"
+    },
+    {
+      "id": "R-GRI-303-1-WATER",
+      "condition": "record['type']=='water'",
+      "transformation": "record['quantity'] / 1000.0",
+      "target": "GRI_303_5_Water_Consumption_m3",
+      "note": "Liters -> cubic meters"
+    },
+    {
+      "id": "R-GRI-404-1-TRAINING",
+      "condition": "record['type']=='training'",
+      "transformation": "record['hours']",
+      "target": "GRI_404_1_Training_Hours",
+      "note": "Individual training hours"
+    },
+    {
+      "id": "R-GRI-401-1-HIRE",
+      "condition": "record['type']=='hire'",
+      "transformation": "1",
+      "target": "GRI_401_1_New_Hire_Count",
+      "note": "Count new hires"
+    }
+  ]
+}
