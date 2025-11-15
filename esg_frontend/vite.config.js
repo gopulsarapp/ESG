@@ -10,7 +10,7 @@ export default defineConfig({
   ],
   server: {
     allowedHosts: [
-      'https://esg-backend-9v72.onrender.com'
+      'https://esg-1-b693.onrender.com'
     ],
   },
   theme: {
