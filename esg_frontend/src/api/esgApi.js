@@ -1,5 +1,5 @@
 export async function processRecords(records) {
-  const res = await fetch("http://localhost:8000/process", {
+  const res = await fetch("https://esg-backend-9v72.onrender.com/process", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ records }),

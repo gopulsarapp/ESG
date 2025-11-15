@@ -10,7 +10,7 @@ export default defineConfig({
   ],
   server: {
     allowedHosts: [
-      'tetratomic-elina-honorifically.ngrok-free.dev'
+      'https://esg-backend-9v72.onrender.com'
     ],
   },
   theme: {
